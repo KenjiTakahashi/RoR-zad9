@@ -26,7 +26,7 @@ $(document).ready(function() {
         {
             $(prev).hide();
         }
-        if(num==count)
+        if(num==count - 1)
         {
             $(next).hide();
         }
@@ -83,12 +83,10 @@ $(document).ready(function() {
             });
         }
         $(prev).click(function() {
-            num--;
-            pn(num, $(parent_.children()[num]).attr("href"));
+            pn(--num, $(parent_.children()[num]).attr("href"));
         });
         $(next).click(function() {
-            num++;
-            pn(num, $(parent_.children()[num]).attr("href"));
+            pn(++num, $(parent_.children()[num]).attr("href"));
         });
         $(clse).click(function() {
             $(imgbg).fadeOut(1000, function() {
