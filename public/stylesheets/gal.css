@@ -1,0 +1,89 @@
+@charset "utf-8";
+#overlay {
+	position:absolute;
+	left:0;
+	top:0;
+	background:black;
+	z-index:3;
+}
+#imgbg {
+	position:absolute;
+	top:10px;
+	left:20px;
+	background:white;
+	padding:10px;
+	z-index:4;
+}
+#galimg {
+	border:0;
+}
+#galnav {
+	background:white;
+	clear:both;
+	display:inline;
+	float:left;
+}
+.galbtn {
+	display:block;
+	float:left;
+	height:30px;
+}
+#prev:link, #prev:visited {
+	background:url("../images/prev.png");
+	width:104px;
+}
+#prev:hover {
+	background:url("../images/aprev.png");
+	width:104px;
+}
+#close:link, #close:visited {
+	background:url("../images/close.png");
+	width:81px;
+}
+#close:hover {
+	background:url("../images/aclose.png");
+	width:81px;
+}
+#next:link, #next:visited {
+	background:url("../images/next.png");
+	width:91px;
+}
+#next:hover {
+	background:url("../images/anext.png");
+	width:91px;
+}
+#galContent {
+	position:relative;
+	margin:0 10px 0 13em;
+	padding-left:10px;
+	text-align:center;
+}
+#galsidebar {
+	width:12em;
+	background: #10aadd;
+	padding-bottom:3005px;
+	margin-bottom:-3000px;
+	float:left;
+	text-align:right;
+}
+.galul {
+	text-decoration:none;
+	list-style:none;
+	font:14px Arial;
+	float:right;
+	border:2px solid #0099cc;
+	width:11.5em;
+	border-right:none;
+	padding:0;
+	background:#8dd6ee;
+	margin:2px 0;
+	position:relative;
+}
+hr {
+	size:1px;
+	color:#0099cc;
+	border-style:solid;
+}
+.galul li {
+	float:right;
+}
