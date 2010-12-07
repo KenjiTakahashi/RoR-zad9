@@ -8,7 +8,7 @@ $(document).ready(function() {
         var prev=$("<a/>");
         var clse=$("<a/>");
         var next=$("<a/>");
-        var count = $("." + parent_.attr("class") + " > a").length;
+        var count = parent_.children().length;
         var num = parent_.children().index(this);
         $(bg).attr("id", "overlay").css({"opacity":"0"});
         $("body").append(bg);
@@ -30,19 +30,20 @@ $(document).ready(function() {
         {
             $(next).hide();
         }
-        var img = new Image();
-        img.src = $(this).attr("href");
-        var w = img.width;
-        var h = img.height;
-        if(w > $("body").width() || h > $("body").height()) {
-            $(bg).css({"width": w + 60, "height": h + 100}).fadeTo("normal", 0.7);
+        var image = new Image();
+        image.src = $(parent_.children()[num]).attr("href");
+        r = $(image).load(function() {
+          return {width: image.width, height: image.height};
+        });
+        if(r[0]["width"] > $("body").width() || r[0]["height"] > $("body").height()) {
+            $(bg).css({"width": r[0]["width"] + 60, "height": r[0]["height"] + 100}).fadeTo("normal", 0.7);
         } else {
             $(bg).css({"width": "100%", "height": "100%"}).fadeTo("normal", 0.7);
         }
-        $(imgbg).animate( {
-            "width":w,
-            "height":h
-        },1500, function() {
+        $(imgbg).animate({
+            "width": r[0]["width"],
+            "height": r[0]["height"]
+        }, 1500, function() {
             $(imgbg).append(img);
             $(img).hide().fadeIn(1000, function() {
                 $(imgbg).append(nav);
@@ -60,16 +61,17 @@ $(document).ready(function() {
             });
             var image = new Image();
             image.src = imgg;
-            w = image.width;
-            h = image.height;
+            r = $(image).load(function() {
+              return {width: image.width, height: image.height};
+            });
             $(img).fadeOut(1000, function() {
                 $(this).attr("src", imgg);
                 $(imgbg).animate( {
-                    "width":w,
-                    "height":h
+                    "width": r[0]["width"],
+                    "height": r[0]["height"]
                 },1500, function() {
                     $(img).fadeIn(1000, function() {
-                        if(num==0) {
+                        if(num == 0) {
                             $(prev).hide();
                         }
                         if(num==count - 1) {
